@@ -1,0 +1,124 @@
+{
+    "fruites": [
+        {
+            "name": "алма",
+            "price": 600,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "апельсин",
+            "price": 300,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "банан",
+            "price": 500,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "құлпынай",
+            "price": 900,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "өрік",
+            "price": 700,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "алмұрт",
+            "price": 700,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "шабдалы",
+            "price": 500,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "ананас",
+            "price": 400,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "қараөрік",
+            "price": 800,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "алқызыл",
+            "price": 900,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "киви",
+            "price": 700,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "құрма",
+            "price": 900,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "анар",
+            "price": 600,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "манго",
+            "price": 900,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "қарбыз",
+            "price": 400,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "қауын",
+            "price": 500,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "жүзім",
+            "price": 700,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "лимон",
+            "price": 900,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "шабдалы",
+            "price": 200,
+            "weight": 1,
+            "image": ""
+        },
+        {
+            "name": "мұрынбас",
+            "price": 700,
+            "weight": 1,
+            "image": ""
+        }
+    ]
+}
