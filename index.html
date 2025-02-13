@@ -1,13 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Altyn Ushtyk</title>
+  <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #4CAF50; /* Жасыл түс */
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2e7d32; /* Қанық жасыл */
+    }
+    .hero-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .hero-text button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .hero-text button:hover {
+      background-color: #45a049;
+    }
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* 7 себеп бөлімі */
+    .benefits {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .benefits h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2e7d32;
+    }
+    .benefit-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .benefit-item {
+      flex: 1;
+      min-width: 250px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .benefit-item h3 {
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+    .benefit-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Дала дәмі */
+    .dala-dami {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .dala-text, .dala-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    .dala-text h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+    .dala-text p {
+      margin-bottom: 20px;
+    }
+
+    /* B2B бөлімі */
+    .b2b {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .b2b-text, .b2b-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    .b2b-text h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+    .b2b-text ul {
+      list-style: disc;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .b2b-text button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* FAQ бөлімі */
+    .faq {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .faq h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2e7d32;
+    }
+    .faq-item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+    .faq-item:hover {
+      background-color: #f0f0f0;
+    }
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      display: none;
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-column h3 {
+      margin-bottom: 10px;
+    }
+    .footer-column a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .social-icons a {
+      background-color: #fff;
+      color: #4CAF50;
+      padding: 5px 8px;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    /* Қарапайым accordion үшін */
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-        
-    <script src="index.js"></script>
+
+  <!-- Навигация -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Altyn Ushtyk</div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Басты бет</a></li>
+          <li><a href="#benefits">7 Себеп</a></li>
+          <li><a href="#dala-dami">Дала Дәмі</a></li>
+          <li><a href="#b2b">B2B</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#footer">Байланыс</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>Балғын өнімдерді тегін жеткіземіз</h1>
+      <p>5,000 тг-ден жоғары тапсырыстарда. Тапсырыс берген күні жеткізу, ал экспресс опциялармен — 90 минутта дейін.</p>
+      <button>Жеткізу аймағын көру</button>
+    </div>
+    <div class="hero-image">
+
+      <img src="https://st3.depositphotos.com/3905595/19167/i/450/depositphotos_191678800-stock-photo-healthy-food-background-healthy-food.jpg" alt="Балғын өнімдер">
+    </div>
+  </section>
+
+  <!-- 7 себеп бөлімі -->
+  <section class="benefits" id="benefits">
+    <h2>Altyn Ushtyk ТАҢДАУДЫҢ 7 СЕБЕБІ</h2>
+    <div class="benefit-items">
+      <div class="benefit-item">
+        <img src="https://img.freepik.com/premium-vector/autumn-gathering-people-collecting-harvest-man-picking-carrot-beetroot-woman-holding-basket-with-vegetables_102902-5865.jpg" alt="Fresh 1">
+        <h3>Altyn Ushtyk ӨНІМДЕРІ</h3>
+        <p>Біз таза және адал қызмет береміз. Фермерлер мен өндірушілерден ең сапалы азық-түлікті жеткіземіз.</p>
+      </div>
+      <div class="benefit-item">
+        <img src="https://mig.pics/x/uploads/posts/2022-09/1663751973_5-mykaleidoscope-ru-p-produkti-na-belom-fone-yeda-oboi-5.jpg" alt="Quality">
+        <h3>ҚЫЗМЕТ ПЕН САПАҒА БАСЫМДЫҚ</h3>
+        <p>Өнімдердің балғындығы мен сапасын әрдайым қадағалаймыз. Уақтылы және жылдам жеткіземіз.</p>
+      </div>
+      <div class="benefit-item">
+        <img src="https://funny.klev.club/uploads/posts/2024-03/funny-klev-club-p-smeshnie-kartinki-produktov-pitaniya-8.jpg" alt="Reason 4">
+        <h3>ЭКСКЛЮЗИВ</h3>
+        <p>Тек бізде ғана табылатын арнайы тауарлар мен фермерлік өнімдер. Еш жерде жоқ дәмді көруге мүмкіндік.</p>
+      </div>
+      <div class="benefit-item">
+        <img src="data:image/jpeg;base64,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" alt="Reason 5">
+        <h3>ЖЕҢІЛДІКТЕР</h3>
+        <p>Күн сайын акциялар мен жеңілдіктер. Қаржыны үнемдей отырып, сапалы тамақтануға жол ашыңыз.</p>
+      </div>
+      <div class="benefit-item">
+        <img src="https://images.faberlic.com/content-service-prod/0aAe678606a-ea27-47cc-ae4f-b2db2cc5f253eyJzaXplIjp7IndpZHRoIjo2NTAsImhlaWdodCI6NDU1fX0=9zZ.png" alt="Reason 6">
+        <h3>ТҰРАҚТЫ КЛИЕНТТЕР</h3>
+        <p>Біздің тұрақты клиенттерге арнайы бонус бағдарламалары бар. Артықшылықтарды қолданыңыз!</p>
+      </div>
+      <div class="benefit-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Iefwm2Xa7Ws5Ib0yqU-we9Js2D8LAPuJUQpLQENGUBDuV0XJrw2GfRsYMHI5eNWNLe4&usqp=CAU" alt="Reason 7">
+        <h3>ҚОЛДАУ ҚЫЗМЕТІ</h3>
+        <p>Сұрақтарыңыз болса, біздің қолдау қызметіміз әрқашан көмекке дайын.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Дала Дәмі бағдарламасы -->
+  <section class="dala-dami" id="dala-dami">
+    <div class="dala-text">
+      <h2>«Дала дәмі» бағдарламасына қосылыңыз</h2>
+      <p>Егер сіз жоғары сапалы өнімдер өндіріп болсаңыз және олардың молшылығымен қазақстандықтарды тамақтандырғыңыз келсе, бізбен серіктес болыңыз. «Дала дәмі» бағдарламасы арқылы өнімдеріңізді кең аудиторияға жеткіземіз.</p>
+      <h2>Адал және ашық жұмыс істейміз</h2>
+      <p>Біз клиенттердің ризашылығын және қызметімізден ең жоғары пайда болуын басты орынға қоямыз. Жұмысымызда ашықтық пен сапаны ұстанамыз. Airba Fresh-те ынтымақтастық бәріңізге пайдалы!</p>
+    </div>
+    <div class="dala-image">
+      <img src="https://cdn.qazaqstan.tv/2023/11/9/1699500251838.png?w=540&h=675&format=jpg&resize=aspectfill&g=center" alt="Дала дәмі">
+    </div>
+  </section>
+
+  <!-- B2B бөлімі -->
+  <section class="b2b" id="b2b">
+    <div class="b2b-image">
+      <img src="https://via.placeholder.com/500x300?text=B2B+Container" alt="B2B Container">
+    </div>
+    <div class="b2b-text">
+      <h2>Altyn Ushtyk B2B</h2>
+      <p>Кәсіпкер, үй жанындағы дүкендер, шағын үйірлер мен мейрамханалар үшін сенімді серіктес.</p>
+      <h3>Артықшылықтар:</h3>
+      <ul>
+        <li>Барлық сұрақтарыңызға жауап беретін, тапсырысты оңтайландыруға көмектесетін жеке менеджер</li>
+        <li>Ауқымды өнімнің дайын шешімдері бар бизнес-кейселер</li>
+        <li>Ыңғайлы төлем тәсілдері (қолма-қол, карта, аударым)</li>
+        <li>Сапалы және жылдам жеткізу</li>
+        <li>Арнайы жеңілдіктер бағдарламасы</li>
+      </ul>
+      <button>Магазинге хабарласыңыз</button>
+    </div>
+  </section>
+
+  <!-- FAQ бөлімі -->
+  <section class="faq" id="faq">
+    <h2>Тапсырыс бергім келеді, бірақ сұрақтарым бар</h2>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <h3>1. Жеткізу қанша уақыт алады? <span>+</span></h3>
+      <div class="faq-answer">
+        Жеткізу уақыты сіздің мекенжайыңыз бен тапсырыс көлеміне байланысты. Әдетте 90 минуттан 24 сағатқа дейін.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <h3>2. Жеткізу қанша тұрады? <span>+</span></h3>
+      <div class="faq-answer">
+        5,000 тг-ден жоғары тапсырыстарда жеткізу тегін. Одан аз болса, шағын төлем алынады.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <h3>3. Жеткізу аймағы қандай? <span>+</span></h3>
+      <div class="faq-answer">
+        Қала орталығы және жақын маңдағы аудандар. Толығырақ ақпаратты «Жеткізу аймағын көру» батырмасынан біле аласыз.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <h3>4. Өнімдер балғын және сапалы болып жетеді ме? <span>+</span></h3>
+      <div class="faq-answer">
+        Иә, біз өнімдердің балғындығы мен сапасын мұқият бақылаймыз. Сізге тек таза, жаңа азық-түлік келеді.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <h3>5. Қандай бонустар бар? <span>+</span></h3>
+      <div class="faq-answer">
+        Тұрақты клиенттерге арналған арнайы жеңілдіктер мен бонустар бар. Акцияларымызды қадағалап отырыңыз.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Біз қарым-қатынасқа әрқашан дайынбыз</h3>
+        <p>Жедел желі: <strong>+7 (705) 952-77-77</strong></p>
+        <p>Күн сайын 8:00-23:00 дейін</p>
+        <p>
+          <a href="#">Қоңырау шалу</a> | 
+          <a href="#">WhatsApp жазу</a>
+        </p>
+      </div>
+      <div class="footer-column">
+        <h3>Серіктестерге</h3>
+        <p><a href="#">Жабдықтаушы болғым келеді</a></p>
+        <p><a href="#">Сізде жұмыс істегім келеді</a></p>
+        <p><a href="#">Серіктестік ұсынғым келеді</a></p>
+        <p><a href="#">Директормен байланыс</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>Құжаттар</h3>
+        <p><a href="#">Публичная оферта</a></p>
+        <p><a href="#">Пайдаланушы келісімі</a></p>
+        <p><a href="#">Құпиялық саясаты</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>Мекенжай</h3>
+        <p>ЖШС «Airba Fresh»</p>
+        <p>Қазақстан, Алматы қ., Тимірязев көшесі 1А, 050057</p>
+        <div class="social-icons">
+          <a href=\"І">FB</a>
+          <a href=\"#">IG</a>
+          <a href=\"#">WA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+  </script>
+
 </body>
 </html>
